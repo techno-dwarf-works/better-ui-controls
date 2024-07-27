@@ -1,8 +1,8 @@
 {
-    "name": "{project_name}.Editor",
-    "rootNamespace": "Better.{short_project_name}.EditorAddons",
+    "name": "BetterControls.Editor",
+    "rootNamespace": "Better.Controls.EditorAddons",
     "references": [
-        "GUID:443314a5a4e67c14a88ae223776b6554",
+        "GUID:162db591e24017f4dba7d59c6202b973",
         "GUID:01df13aca8d01e24a911bcc3e8277031",
         "GUID:6adbd2a12d24f5d429f7ea1b1086e835"
     ],
