@@ -1,11 +1,13 @@
 {
-  "name": "com.tdw.better.controls",
-  "displayName": "Better Controls",
+  "name": "com.tdw.better.uicontrols",
+  "displayName": "Better UI Controls",
   "version": "0.0.1",
   "unity": "2021.3",
   "description": " ",
   "dependencies": {
-    "com.tdw.better.internal.core": "0.0.2"
+    "com.tdw.better.internal.core": "0.0.2",
+    "com.tdw.better.commons" : "0.0.57",
+    "com.tdw.better.attributes" : "0.0.3"
   },
   "author": {
     "name": "Better Plugins",
