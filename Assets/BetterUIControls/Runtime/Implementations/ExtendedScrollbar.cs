@@ -10,7 +10,7 @@ using UnityEngine.UI;
 
 namespace Better.UIControls.Runtime
 {
-    public class ExtendedButton : Button
+    public class ExtendedScrollbar : Scrollbar
     {
         [Select] [NotNull] [Detailed] 
         [SerializeReference] protected SelectableTransition _transition;

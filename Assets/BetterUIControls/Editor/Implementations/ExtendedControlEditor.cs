@@ -1,7 +1,6 @@
-﻿using System;
-using System.Linq;
-using Better.Commons.EditorAddons.CustomEditors;
+﻿using Better.Commons.EditorAddons.CustomEditors;
 using Better.Commons.EditorAddons.Utility;
+using UnityEditor;
 using UnityEditor.UIElements;
 using UnityEngine.UIElements;
 
@@ -16,21 +15,29 @@ namespace Better.UIControls.EditorAddons
 
         protected abstract string[] CustomProperties { get; }
 
-        private void CreateProperties(VisualElement container, params string[] drawProperties)
+        private void FillContainer(VisualElement container, params string[] drawProperties)
         {
             foreach (var drawProperty in drawProperties)
             {
                 var property = serializedObject.FindProperty(drawProperty);
                 if (property == null) continue;
-                var propertyField = new PropertyField(property);
 
-                if (property.propertyPath == "m_Script")
-                {
-                    propertyField.SetEnabled(false);
-                }
+                var propertyField = CreateField(property);
                 
                 container.Add(propertyField);
             }
+        }
+
+        protected virtual VisualElement CreateField(SerializedProperty property)
+        {
+            var propertyField = new PropertyField(property);
+            
+            if (property.propertyPath == "m_Script")
+            {
+                propertyField.SetEnabled(false);
+            }
+
+            return propertyField;
         }
 
         protected override void OnEnable()
@@ -45,7 +52,7 @@ namespace Better.UIControls.EditorAddons
 
             IteratePreEditors(container);
 
-            CreateProperties(container, CustomProperties);
+            FillContainer(container, CustomProperties);
 
             IteratePostEditors(container);
             container.TrackSerializedObjectValue(serializedObject, OnSerializedObjectTrack);
