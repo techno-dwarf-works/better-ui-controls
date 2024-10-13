@@ -14,10 +14,10 @@ namespace Better.UIControls.Runtime
     public class ExtendedToggle : Toggle
     {
         [Select] [NotNull] [Detailed] 
-        [SerializeReference] private SelectableTransition _transition;
+        [SerializeReference] protected SelectableTransition _transition;
 
         [Select] [NotNull] [Detailed] 
-        [SerializeReference] private CheckmarkTransition _toggleTransition;
+        [SerializeReference] protected CheckmarkTransition _toggleTransition;
 
         private CancellationTokenSource _transitionTokenSource;
         private CancellationTokenSource _checkmarkTransitionTokenSource;
